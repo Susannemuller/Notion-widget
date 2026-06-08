@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Norwegian Greeting Widget</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Trebuchet MS, sans-serif;
+            background: transparent;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px;
+        }
+
+        .greeting-container {
+            font-size: 32px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            color: #2d3436;
+            text-align: right;
+        }
+
+        .greeting-text {
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <div class="greeting-container">
+        <div class="greeting-text" id="greeting"></div>
+    </div>
+
+    <script>
+        function getGreeting() {
+            const hour = new Date().getHours();
+            let greeting;
+
+            if (hour >= 5 && hour < 12) {
+                greeting = "God morgen, Susanne!";
+            } else if (hour >= 12 && hour < 18) {
+                greeting = "God ettermiddag, Susanne!";
+            } else {
+                greeting = "God kveld, Susanne!";
+            }
+
+            return greeting;
+        }
+
+        document.getElementById('greeting').textContent = getGreeting();
+    </script>
+</body>
+</html>
